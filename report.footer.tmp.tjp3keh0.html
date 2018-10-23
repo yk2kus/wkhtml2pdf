@@ -1,0 +1,83 @@
+
+        <base href=http://sale.v110.mylocal.com>
+        <!DOCTYPE html>
+        <html style="height: 0;">
+            <head>
+                
+            <link href="/web/content/495-c3fd9c8/web.report_assets_pdf.0.css" rel="stylesheet"/>
+                
+            <link href="/web/content/491-6c684ea/web.report_assets_common.0.css" rel="stylesheet"/>
+            <link href="/web/content/492-6c684ea/web.report_assets_common.1.css" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css?family=Work+Sans:thin,light,regular,medium,bold,semi-bold" rel="stylesheet">
+
+        
+                
+            
+                
+            <link href="https://fonts.googleapis.com/css?family=Work+Sans:thin,light,regular,medium,bold,semi-bold" rel="stylesheet">
+
+        
+                <meta charset="utf-8"/>
+                
+                    <script>
+                        function subst() {
+                            var vars = {};
+                            var x = document.location.search.substring(1).split('&');
+                            for (var i in x) {
+                                var z = x[i].split('=', 2);
+                                vars[z[0]] = unescape(z[1]);
+                            }
+                            var fromPage = document.getElementsByClassName('page');
+                            for(var j = 0; j<fromPage.length; j++)
+                                fromPage[j].textContent = vars['sitepage'];
+                            var toPage = document.getElementsByClassName('topage');
+                            for(var j = 0; j<toPage.length; j++)
+                                toPage[j].textContent = vars['sitepages'];
+
+                            var index = vars['webpage'].split('.', 4)[3]
+                            var header = document.getElementById('minimal_layout_report_headers');
+                            if(header !== null){
+                                var companyHeader = header.children[index];
+                                header.textContent = '';
+                                header.appendChild(companyHeader);
+                            }
+                            var footer = document.getElementById('minimal_layout_report_footers');
+                            if(footer !== null){
+                                var companyFooter = footer.children[index];
+                                footer.textContent = '';
+                                footer.appendChild(companyFooter);
+                            }
+                        }
+                    </script>
+                
+            </head>
+            <body class="container" onload="subst()">
+                <div id="minimal_layout_report_footers"><div class="footer">
+            <div class="text-center" style="border-top: 1px solid black;">
+                <ul class="list-inline mb4">
+                    <li>Phone: <span data-oe-model="res.company" data-oe-id="1" data-oe-field="phone" data-oe-type="char" data-oe-expression="company.phone">+1 555 123 8069</span></li>
+                    <li>Email: <span data-oe-model="res.company" data-oe-id="1" data-oe-field="email" data-oe-type="char" data-oe-expression="company.email">info@yourcompany.example.com</span></li>
+                    <li>Web: <span data-oe-model="res.company" data-oe-id="1" data-oe-field="website" data-oe-type="char" data-oe-expression="company.website">http://www.example.com</span></li>
+                    
+                </ul>
+
+                <div name="financial_infos">
+                    <span data-oe-model="res.company" data-oe-id="1" data-oe-field="report_footer" data-oe-type="text" data-oe-expression="company.report_footer"></span>
+                </div>
+
+                <div class="text-muted" data-oe-xpath="/t[1]/div[3]/div[1]/div[2]" data-oe-field="arch" data-oe-id="182" data-oe-model="ir.ui.view">
+                    Page: <span class="page"></span> / <span class="topage"></span>
+                </div>
+            </div>
+        </div>
+    
+        
+    
+
+        
+    
+        
+                    </div>
+            </body>
+        </html>
+    
